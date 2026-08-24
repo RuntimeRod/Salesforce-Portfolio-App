@@ -42,6 +42,10 @@ $RECYCLE.BIN/
 # Local environment variables
 .env
 
+# Salesforce auth URL files (CI writes auth-url.txt at runtime; never commit)
+auth-url.txt
+*.sfdx-auth-url
+
 # Python Salesforce Functions
 **/__pycache__/
 **/.venv/

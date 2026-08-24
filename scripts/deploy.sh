@@ -12,7 +12,11 @@ echo ">> Assigning permission set..."
 sf org assign permset --name Portfolio_Admin --target-org "$ORG_ALIAS" || \
   echo "   (Portfolio_Admin permission set not found yet - skipping)"
 
-if [ -d "data" ] && [ -n "$(ls -A data/*.json 2>/dev/null)" ]; then
+if [ -f "data/plan.json" ]; then
+  echo ">> Importing sample data..."
+  sf data import tree --plan data/plan.json --target-org "$ORG_ALIAS" || \
+    echo "   (data import failed - check plan files)"
+elif [ -d "data" ] && [ -n "$(ls -A data/*.json 2>/dev/null)" ]; then
   echo ">> Importing sample data..."
   sf data import tree --files data/*.json --target-org "$ORG_ALIAS" || \
     echo "   (data import failed - check plan files)"
