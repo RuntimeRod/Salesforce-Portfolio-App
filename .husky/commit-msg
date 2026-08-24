@@ -1,0 +1,3 @@
+# Strip Cursor attribution so GitHub never lists it as a contributor.
+grep -v -E '^Co-authored-by: Cursor|^Co-authored-by:.*cursoragent@cursor.com|^Made-with: Cursor|^Made with Cursor' "$1" > "$1.stripped"
+mv "$1.stripped" "$1"

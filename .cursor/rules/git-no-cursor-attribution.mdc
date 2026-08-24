@@ -1,0 +1,13 @@
+---
+description: Never attribute Cursor/AI as git co-author or GitHub contributor
+alwaysApply: true
+---
+
+# Git attribution
+
+Never appear as collaborator, co-author, or commit author on this repo (or any repo for this user).
+
+- Do not add `Co-authored-by: Cursor`, `cursoragent@cursor.com`, or `Made with Cursor` to commit messages or PRs.
+- Author must stay the user's git identity (`Rodrigo Moreira` / `RuntimeRod`).
+- If the environment injects those trailers, strip them before the commit is created. The Husky `commit-msg` hook does this locally.
+- Do not force-push `main` unless the user explicitly asks (history rewrite to remove attribution is an exception they already approved).
