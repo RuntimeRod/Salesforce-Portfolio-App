@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/RuntimeRod/salesforce-portfolio-app/actions/workflows/ci.yml/badge.svg)](https://github.com/RuntimeRod/salesforce-portfolio-app/actions/workflows/ci.yml)
 
-App Salesforce: portfólio de projetos, experiência,
+App Salesforce: portfólio de projetos, experiências,
 certificações e skills. Apex no padrão fflib-style (selector / domain /
 service), LWC na Home (perfil, métricas, GitHub) e callout REST na API
 do GitHub.
