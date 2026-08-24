@@ -1,0 +1,26 @@
+[
+  {
+    "sobject": "About_Me__c",
+    "files": ["About_Me__c.json"]
+  },
+  {
+    "sobject": "Experience__c",
+    "files": ["Experience__c.json"]
+  },
+  {
+    "sobject": "Certification__c",
+    "files": ["Certification__c.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "files": ["Skill__c.json"]
+  },
+  {
+    "sobject": "Contact_Info__c",
+    "files": ["Contact_Info__c.json"]
+  },
+  {
+    "sobject": "Salesforce_Project__c",
+    "files": ["Salesforce_Project__c.json"]
+  }
+]

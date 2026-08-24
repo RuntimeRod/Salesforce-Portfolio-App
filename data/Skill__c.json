@@ -1,0 +1,58 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillApex" },
+      "Name": "Apex",
+      "Category__c": "Languages",
+      "Level__c": "Advanced"
+    },
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillJS" },
+      "Name": "JavaScript",
+      "Category__c": "Languages",
+      "Level__c": "Proficient"
+    },
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillSOQL" },
+      "Name": "SOQL",
+      "Category__c": "Languages",
+      "Level__c": "Advanced"
+    },
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillService" },
+      "Name": "Service Cloud",
+      "Category__c": "Salesforce",
+      "Level__c": "Advanced"
+    },
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillSales" },
+      "Name": "Sales Cloud",
+      "Category__c": "Salesforce",
+      "Level__c": "Proficient"
+    },
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillLWC" },
+      "Name": "Lightning Web Components",
+      "Category__c": "Salesforce",
+      "Level__c": "Advanced"
+    },
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillFlow" },
+      "Name": "Flow Builder",
+      "Category__c": "Salesforce",
+      "Level__c": "Advanced"
+    },
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillREST" },
+      "Name": "REST / Named Credentials",
+      "Category__c": "Integration & Data",
+      "Level__c": "Advanced"
+    },
+    {
+      "attributes": { "type": "Skill__c", "referenceId": "SkillGit" },
+      "Name": "Git / Salesforce CLI",
+      "Category__c": "Tools",
+      "Level__c": "Proficient"
+    }
+  ]
+}

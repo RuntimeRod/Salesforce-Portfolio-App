@@ -1,0 +1,14 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Experience__c", "referenceId": "ExpDantas" },
+      "Name": "Salesforce Developer",
+      "Company__c": "Dantas Consultoria",
+      "Role__c": "Analista Desenvolvedor Salesforce",
+      "Start_Date__c": "2026-01-01",
+      "Is_Current__c": true,
+      "Location__c": "Brazil",
+      "Description__c": "Delivers Service Cloud, Sales Cloud, Education Cloud and Experience Cloud implementations. Apex, LWC, Flow Builder, Omni-Channel, Einstein Bots, Knowledge and REST/SOAP integrations."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Contact_Info__c",
+        "referenceId": "ContactPrimary"
+      },
+      "Name": "Primary",
+      "Email__c": "portfolio@example.com",
+      "Phone__c": "+00 00 00000-0000",
+      "City__c": "Rio de Janeiro",
+      "LinkedIn__c": "https://www.linkedin.com/in/rodmoreira1312/",
+      "GitHub__c": "https://github.com/RuntimeRod",
+      "Trailhead__c": "https://www.salesforce.com/trailblazer/rodmoreira"
+    }
+  ]
+}

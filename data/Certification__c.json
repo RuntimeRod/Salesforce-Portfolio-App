@@ -1,0 +1,12 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Certification__c", "referenceId": "CertPDI" },
+      "Name": "Salesforce Certified Platform Developer I",
+      "Status__c": "Active",
+      "Date_Earned__c": "2026-01-15",
+      "Issuing_Organization__c": "Salesforce",
+      "Credential_URL__c": "https://www.salesforce.com/trailblazer/rodmoreira"
+    }
+  ]
+}

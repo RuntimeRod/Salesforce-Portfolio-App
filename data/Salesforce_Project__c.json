@@ -1,0 +1,72 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Salesforce_Project__c",
+        "referenceId": "ProjectUnisanta"
+      },
+      "Name": "Unisanta — Academic Service Platform",
+      "Status__c": "Published",
+      "Cloud__c": "Service Cloud;Education Cloud",
+      "Technologies__c": "Apex, LWC, Flow Builder, Omni-Channel, Einstein Bots, Custom Metadata Types",
+      "Start_Date__c": "2026-01-01",
+      "Description__c": "Implemented Service Cloud and Education Cloud so academic operations and student support run on a single Salesforce platform, with Apex, LWC and Flow Builder.",
+      "Problem__c": "Student support and academic operations were split across channels, making SLA control and routing inconsistent.",
+      "Solution__c": "Centralized case intake (Email-to-Case, Web-to-Case), Omni-Channel queues, Einstein Bots for triage and Entitlements/Milestones for SLA escalation.",
+      "Architecture__c": "Service Cloud + Education Cloud. Routing rules driven by Custom Metadata. REST integrations in Apex with Named Credentials and 90%+ test coverage. Deploys via Salesforce CLI and Git.",
+      "GitHub_Repository__c": "https://github.com/example/unisanta-service-cloud",
+      "Demo_URL__c": "https://www.salesforce.com/products/service-cloud/"
+    },
+    {
+      "attributes": {
+        "type": "Salesforce_Project__c",
+        "referenceId": "ProjectRealGrandeza"
+      },
+      "Name": "Real Grandeza — Sales and After-Sales",
+      "Status__c": "Published",
+      "Cloud__c": "Sales Cloud;Service Cloud",
+      "Technologies__c": "Apex, LWC, SOQL, Flow Builder, Validation Rules, REST, SOAP",
+      "Start_Date__c": "2026-01-01",
+      "Description__c": "Delivered the commercial funnel in Sales Cloud and after-sales support in Service Cloud for a pension-fund client.",
+      "Problem__c": "Lead capture, qualification and conversion were manual, and after-sales cases lacked consistent routing.",
+      "Solution__c": "Lead-to-Opportunity pipeline with follow-up Flows, LWC components for registration/service, Validation Rules, Apex triggers and REST/SOAP integrations.",
+      "Architecture__c": "Sales Cloud for the funnel; Service Cloud for case routing. LWC + Apex/SOQL for UI. Triggers and integrations for after-sales automation.",
+      "GitHub_Repository__c": "https://github.com/example/real-grandeza-sales-service",
+      "Demo_URL__c": "https://www.salesforce.com/products/sales-cloud/"
+    },
+    {
+      "attributes": {
+        "type": "Salesforce_Project__c",
+        "referenceId": "ProjectMicromed"
+      },
+      "Name": "Micromed — Partner Self-Service Portal",
+      "Status__c": "Published",
+      "Cloud__c": "Sales Cloud;Service Cloud;Experience Cloud",
+      "Technologies__c": "Experience Cloud, Knowledge, Apex, Flows, Data Loader, Dashboards",
+      "Start_Date__c": "2026-01-01",
+      "Description__c": "Launched an Experience Cloud self-service portal for customers and partners, backed by a Knowledge base to deflect human cases.",
+      "Problem__c": "Customers and partners opened cases for questions that could be resolved with structured content.",
+      "Solution__c": "Experience Cloud (Communities) portal integrated with Sales Cloud and Service Cloud, plus Knowledge articles and data categories.",
+      "Architecture__c": "Experience Cloud site on Sales/Service data. Knowledge with data categories. Apex and Flows for portal processes. Data Loader and dashboards for content operations.",
+      "GitHub_Repository__c": "https://github.com/example/micromed-experience-cloud",
+      "Demo_URL__c": "https://www.salesforce.com/products/experience-cloud/"
+    },
+    {
+      "attributes": {
+        "type": "Salesforce_Project__c",
+        "referenceId": "ProjectPortfolio"
+      },
+      "Name": "Salesforce Portfolio App",
+      "Status__c": "Published",
+      "Cloud__c": "Platform",
+      "Technologies__c": "Apex, LWC, Flow Builder, Named Credentials, Custom Metadata, GitHub Actions",
+      "Start_Date__c": "2026-08-01",
+      "Description__c": "Personal portfolio rebuilt as a native Salesforce app: custom objects, layered Apex, a live GitHub LWC and publication automation. Agentforce is added on top of the same invocable Apex.",
+      "Problem__c": "A résumé alone cannot prove Apex architecture, LWC, integrations or test discipline to a Salesforce hiring manager.",
+      "Solution__c": "A deployable SFDX app with a real REST callout, trigger handler, Flows with split responsibilities, 90%+ tests and CI.",
+      "Architecture__c": "LWC githubRepos → GitHubReposController → GitHubService → Named Credential + CMT. Trigger → Handler → SalesforceProjectService. PortfolioProjectInvocable and GitHubReposInvocable for Flow and Agentforce.",
+      "GitHub_Repository__c": "https://github.com/RuntimeRod/salesforce-portfolio-app",
+      "Demo_URL__c": "https://github.com/RuntimeRod/salesforce-portfolio-app"
+    }
+  ]
+}
