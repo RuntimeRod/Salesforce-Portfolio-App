@@ -1,0 +1,96 @@
+<template>
+  <div class="showcase">
+    <template lwc:if={isLoading}>
+      <div class="slds-is-relative slds-m-vertical_large">
+        <lightning-spinner
+          alternative-text="Loading portfolio"
+          size="small"
+        ></lightning-spinner>
+      </div>
+    </template>
+    <template lwc:else>
+      <section class="hero">
+        <div class="avatar" aria-hidden="true">{initials}</div>
+        <div class="hero-copy">
+          <p class="eyebrow">{title}</p>
+          <h1 class="name">{name}</h1>
+          <p class="headline">{headline}</p>
+          <p class="meta" lwc:if={location}>{location}</p>
+          <p class="bio" lwc:if={bio}>{bio}</p>
+          <div class="links">
+            <a lwc:if={linkedIn} href={linkedIn} target="_blank" rel="noopener"
+              >LinkedIn</a
+            >
+            <a lwc:if={gitHub} href={gitHub} target="_blank" rel="noopener"
+              >GitHub</a
+            >
+            <a
+              lwc:if={trailhead}
+              href={trailhead}
+              target="_blank"
+              rel="noopener"
+              >Trailhead</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="stats" lwc:if={hasStats}>
+        <template for:each={stats} for:item="stat">
+          <article key={stat.label} class="stat-card">
+            <lightning-icon
+              icon-name={stat.icon}
+              size="small"
+              alternative-text={stat.label}
+            ></lightning-icon>
+            <p class="stat-value">{stat.value}</p>
+            <p class="stat-label">{stat.label}</p>
+          </article>
+        </template>
+      </section>
+
+      <section class="projects" lwc:if={hasProjects}>
+        <h2 class="section-title">Published projects</h2>
+        <div class="project-grid">
+          <template for:each={projects} for:item="project">
+            <article key={project.id} class="project-card">
+              <button
+                class="project-title"
+                type="button"
+                data-id={project.id}
+                onclick={openProject}
+              >
+                {project.name}
+              </button>
+              <div class="chips">
+                <template for:each={project.clouds} for:item="cloud">
+                  <span key={cloud} class="chip">{cloud}</span>
+                </template>
+              </div>
+              <p class="project-desc">{project.description}</p>
+              <p class="tech" lwc:if={project.technologies}>
+                {project.technologies}
+              </p>
+              <div class="project-links">
+                <a
+                  lwc:if={project.gitHubUrl}
+                  href={project.gitHubUrl}
+                  target="_blank"
+                  rel="noopener"
+                  >Repo</a
+                >
+                <a
+                  lwc:if={project.demoUrl}
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener"
+                  >Demo</a
+                >
+              </div>
+            </article>
+          </template>
+        </div>
+      </section>
+    </template>
+  </div>
+</template>

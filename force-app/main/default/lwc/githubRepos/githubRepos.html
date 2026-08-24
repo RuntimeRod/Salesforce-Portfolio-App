@@ -1,8 +1,5 @@
 <template>
-  <lightning-card
-    title="My GitHub repositories"
-    icon-name="utility:socialshare"
-  >
+  <lightning-card title="GitHub repositories" icon-name="utility:socialshare">
     <div class="slds-p-horizontal_small slds-p-bottom_small">
       <template lwc:if={isLoading}>
         <div class="slds-is-relative slds-m-vertical_large">
@@ -18,20 +15,16 @@
       <template lwc:elseif={hasRepos}>
         <div class="repo-grid">
           <template for:each={repos} for:item="repo">
-            <article
-              key={repo.name}
-              class="repo-card slds-box slds-box_x-small"
-            >
+            <article key={repo.name} class="repo-card">
               <a href={repo.htmlUrl} target="_blank" rel="noopener noreferrer"
                 >{repo.name}</a
               >
               <p class="slds-text-body_small slds-m-top_xx-small">
                 {repo.description}
               </p>
-              <p
-                class="slds-text-body_small slds-text-color_weak slds-m-top_xx-small"
-              >
-                {repo.language} · {repo.stargazersCount} stars
+              <p class="repo-meta">
+                <span lwc:if={repo.language} class="lang">{repo.language}</span>
+                <span>{repo.stargazersCount} stars</span>
               </p>
             </article>
           </template>

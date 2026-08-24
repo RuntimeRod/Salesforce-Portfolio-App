@@ -1,0 +1,156 @@
+.hero {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #032d60 0%, #0176d3 58%, #1b96ff 100%);
+  color: #fff;
+}
+
+.avatar {
+  flex: 0 0 4.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  opacity: 0.85;
+}
+
+.name {
+  margin: 0.2rem 0 0.35rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.headline,
+.meta,
+.bio {
+  margin: 0.2rem 0;
+}
+
+.bio {
+  max-width: 52rem;
+  opacity: 0.95;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.links a,
+.project-links a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.hero .links a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  padding: 0.9rem 1rem;
+}
+
+.stat-value {
+  margin: 0.35rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #032d60;
+}
+
+.stat-label {
+  margin: 0;
+  color: #706e6b;
+  font-size: 0.8rem;
+}
+
+.section-title {
+  margin: 1.25rem 0 0.65rem;
+  font-size: 1.05rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 0.75rem;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.project-title {
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: #0176d3;
+  cursor: pointer;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.chip {
+  background: #eef4ff;
+  color: #032d60;
+  border-radius: 1rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.7rem;
+}
+
+.project-desc,
+.tech {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.tech {
+  color: #706e6b;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
