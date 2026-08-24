@@ -29,7 +29,7 @@ Create an **Employee / internal agent** grounded on **this app’s records**, no
 
 Minimum three topics:
 
-1. **Projects** — action: `Get Portfolio Projects`. Sample: “Which projects used Experience Cloud?” → Micromed. “List published projects.”
+1. **Projects** — action: `Get Portfolio Projects`. Sample: “Which projects used Platform?” → Salesforce Portfolio App. “List published projects.”
 2. **Experience and certifications** — start with record queries on `Experience__c` and `Certification__c` (standard Retriever / Query Records). You can add a small invocable later if the answers are too thin.
 3. **GitHub** — action: `Get GitHub Repositories`. Sample: “What are my public repositories?”
 
@@ -60,4 +60,4 @@ Topic instructions (copy and adapt):
 
 - Do not commit GenAI/Bot XML into `force-app` until deploy to a vanilla DE still succeeds.
 - Do not enable Agentforce only on a scratch org you will throw away without prints.
-- Do not add Agentforce to the CV until the preview answers the Experience Cloud question correctly.
+- Do not add Agentforce to the CV until the preview answers the Platform project question correctly.

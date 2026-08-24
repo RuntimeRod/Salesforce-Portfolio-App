@@ -45,9 +45,10 @@ Exatamente o tutorial, com estas correções/melhorias:
 Dashboard` (métricas: Total Projects/Certifications/Skills; gráficos:
    Projects by Status, by Cloud, Certifications by Status, Skills by Category;
    tabela: Professional Experience).
-6. Preencher com dados reais: 3 projetos profissionais (Unisanta, Real
-   Grandeza, Micromed — descritos sem dados confidenciais do cliente),
-   certificação PD I, skills do currículo, experiência Dantas + freelancer.
+6. Preencher com dados de exemplo **sem nomear clientes reais**: 1 projeto
+   Published (este próprio Salesforce Portfolio App). Novos case studies
+   entram depois como registros Published. Certificação PD I, skills e
+   experiência Dantas (sem detalhar entregas de cliente).
 
 ### Fase 2 — Extensões de desenvolvimento (o diferencial, ~10-15h)
 
@@ -55,7 +56,7 @@ Dashboard` (métricas: Total Projects/Certifications/Skills; gráficos:
 
 - Named Credential `GitHub_API` → `https://api.github.com` (sem auth; API pública).
 - Custom Metadata Type `GitHub_Config__mdt` com campos `Username__c` e
-  `Max_Repos__c` (prova CMT como configuração, igual ao que fez na Unisanta).
+  `Max_Repos__c` (prova CMT como configuração, sem hardcode).
 - Classe `GitHubService.cls`: callout GET `/users/{username}/repos`,
   parse JSON em wrapper tipado, tratamento de erro.
 - Classe `GitHubReposController.cls`: `@AuraEnabled(cacheable=true)`.
@@ -199,7 +200,7 @@ cheia, org em inglês, dados reais cadastrados, zoom 100%:
 | --- | ----------------------------------------------------- | ---------------------------- |
 | 1   | Home Page completa do app (hero shot)                 | README topo + LinkedIn       |
 | 2   | Dashboard com os 8 widgets preenchidos                | README + currículo/portfólio |
-| 3   | Record page de um projeto real (Unisanta) preenchido  | README                       |
+| 3   | Record page do Salesforce Portfolio App preenchida    | README                       |
 | 4   | LWC `githubRepos` renderizado na home com repos reais | README (seção integração)    |
 | 5   | Canvas do Record-Triggered Flow no Flow Builder       | README (seção automação)     |
 | 6   | Screen Flow em execução (wizard, passo 2)             | README                       |
@@ -221,7 +222,7 @@ público) e linkar no README, currículo e LinkedIn.
 | Tempo     | Cena                | O que mostrar                                                                                                 | O que falar                                                                                                                                                                 |
 | --------- | ------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 0:00–0:15 | Abertura            | Home do app já aberta                                                                                         | "Sou Rodrigo, dev Salesforce. Este é meu portfólio construído como app nativo na plataforma — objetos, automação, código e integração real."                                |
-| 0:15–0:45 | Tour declarativo    | Tabs: About Me → Experience → Certifications; abrir o registro do projeto Unisanta                            | "Modelei 6 objetos customizados para representar o portfólio; cada projeto documenta problema de negócio, solução e arquitetura."                                           |
+| 0:15–0:45 | Tour declarativo    | Tabs: About Me → Experience → Certifications; abrir o registro Salesforce Portfolio App                       | "Modelei 6 objetos customizados para representar o portfólio; cada projeto documenta problema de negócio, solução e arquitetura."                                           |
 | 0:45–1:15 | Dashboard           | Dashboard completo, apontar métricas                                                                          | "Reports agrupados alimentam o dashboard — a mesma estrutura de relatórios que entrego em projetos de clientes."                                                            |
 | 1:15–1:50 | Integração (clímax) | Home → LWC githubRepos; clicar num repo e abrir o GitHub                                                      | "Este componente LWC consome a API do GitHub via Apex com Named Credential; o endpoint e os parâmetros ficam em Custom Metadata — mostra integração REST de ponta a ponta." |
 | 1:50–2:20 | Automação           | Mudar Status de um projeto para Published; mostrar a Task criada e a validação bloqueando publicação sem link | "Um Record-Triggered Flow e um trigger Apex controlam o ciclo de publicação."                                                                                               |
@@ -274,8 +275,7 @@ inatividade prolongada, não por prazo fixo).
 - **Conflito de nome "Contact"**: usar `Contact_Info__c` (correção sobre o PDF).
 - **Dados pessoais**: telefone/e-mail nos registros de exemplo do repo →
   placeholders; no app da org pode usar dados reais (a org não é pública).
-- **Descrições dos projetos de clientes**: sem números internos nem dados
-  confidenciais — descrever solução técnica genérica, como já está no currículo.
+- **Case studies no app**: só o próprio Portfolio App (e o que você cadastrar depois). Não versionar nome, problema ou arquitetura de cliente real.
 - **API do GitHub sem auth**: limite de 60 requisições/hora por IP — suficiente
   para demo; tratar erro 403 no Apex com mensagem amigável (vira caso de teste).
 - **Agentforce**: **Fase 4, feita por você**, fora do `force-app` principal.

@@ -15,8 +15,8 @@ const mockShowcase = {
     trailhead: "https://www.salesforce.com/trailblazer/rodmoreira"
   },
   stats: [
-    { label: "Projects", value: 4, icon: "utility:layers" },
-    { label: "Published", value: 4, icon: "utility:success" }
+    { label: "Projects", value: 1, icon: "utility:layers" },
+    { label: "Published", value: 1, icon: "utility:success" }
   ],
   projects: [
     {
@@ -24,8 +24,8 @@ const mockShowcase = {
       name: "Salesforce Portfolio App",
       description: "Native Salesforce portfolio.",
       technologies: "Apex, LWC",
-      demoUrl: "https://github.com/RuntimeRod/salesforce-portfolio-app",
-      gitHubUrl: "https://github.com/RuntimeRod/salesforce-portfolio-app",
+      demoUrl: "https://github.com/RuntimeRod/Salesforce-Portfolio-App",
+      gitHubUrl: "https://github.com/RuntimeRod/Salesforce-Portfolio-App",
       clouds: ["Platform"]
     }
   ]

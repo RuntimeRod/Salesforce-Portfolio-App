@@ -52,4 +52,4 @@ GitHubReposInvocable → GitHubService
 | `Contact_Info__c`       | Public contact (not the standard Contact object)      |
 | `GitHub_Config__mdt`    | Integration config                                    |
 
-The Lightning app `Salesforce_Portfolio` uses App Page `Portfolio_Home` with LWC `githubRepos` in the main region. Each custom object has a page layout and a Lightning record page.
+The Lightning app `Salesforce_Portfolio` uses App Page `Portfolio_Home` with LWCs `portfolioHome` and `githubRepos`, plus an embedded dashboard. Sample data in `data/` is only this app’s own Published project — do not load named client case studies. Each custom object has a page layout and a Lightning record page.

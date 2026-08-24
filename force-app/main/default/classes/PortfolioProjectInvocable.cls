@@ -5,7 +5,7 @@ public with sharing class PortfolioProjectInvocable {
   public class Request {
     @InvocableVariable(
       label='Cloud'
-      description='Optional Cloud picklist value, e.g. Experience Cloud'
+      description='Optional Cloud picklist value, e.g. Platform'
     )
     public String cloud;
     @InvocableVariable(

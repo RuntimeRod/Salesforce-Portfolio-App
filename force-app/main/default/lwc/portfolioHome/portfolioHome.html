@@ -1,7 +1,7 @@
 <template>
   <div class="showcase">
     <template lwc:if={isLoading}>
-      <div class="slds-is-relative slds-m-vertical_large">
+      <div class="slds-is-relative slds-m-vertical_medium">
         <lightning-spinner
           alternative-text="Loading portfolio"
           size="small"
@@ -16,7 +16,6 @@
           <h1 class="name">{name}</h1>
           <p class="headline">{headline}</p>
           <p class="meta" lwc:if={location}>{location}</p>
-          <p class="bio" lwc:if={bio}>{bio}</p>
           <div class="links">
             <a lwc:if={linkedIn} href={linkedIn} target="_blank" rel="noopener"
               >LinkedIn</a
@@ -38,39 +37,33 @@
       <section class="stats" lwc:if={hasStats}>
         <template for:each={stats} for:item="stat">
           <article key={stat.label} class="stat-card">
-            <lightning-icon
-              icon-name={stat.icon}
-              size="small"
-              alternative-text={stat.label}
-            ></lightning-icon>
-            <p class="stat-value">{stat.value}</p>
-            <p class="stat-label">{stat.label}</p>
+            <span class="stat-value">{stat.value}</span>
+            <span class="stat-label">{stat.label}</span>
           </article>
         </template>
       </section>
 
       <section class="projects" lwc:if={hasProjects}>
         <h2 class="section-title">Published projects</h2>
-        <div class="project-grid">
+        <div class="project-list">
           <template for:each={projects} for:item="project">
-            <article key={project.id} class="project-card">
-              <button
-                class="project-title"
-                type="button"
-                data-id={project.id}
-                onclick={openProject}
-              >
-                {project.name}
-              </button>
-              <div class="chips">
-                <template for:each={project.clouds} for:item="cloud">
-                  <span key={cloud} class="chip">{cloud}</span>
-                </template>
+            <article key={project.id} class="project-row">
+              <div class="project-main">
+                <button
+                  class="project-title"
+                  type="button"
+                  data-id={project.id}
+                  onclick={openProject}
+                >
+                  {project.name}
+                </button>
+                <div class="chips">
+                  <template for:each={project.clouds} for:item="cloud">
+                    <span key={cloud} class="chip">{cloud}</span>
+                  </template>
+                </div>
+                <p class="project-desc">{project.description}</p>
               </div>
-              <p class="project-desc">{project.description}</p>
-              <p class="tech" lwc:if={project.technologies}>
-                {project.technologies}
-              </p>
               <div class="project-links">
                 <a
                   lwc:if={project.gitHubUrl}

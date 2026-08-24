@@ -4,12 +4,12 @@ private class PortfolioProjectInvocableTest {
   static void getProjects_filtersByCloudAndStatus() {
     insert new List<Salesforce_Project__c>{
       new Salesforce_Project__c(
-        Name = 'Micromed Portal',
+        Name = 'Platform Lab',
         Status__c = 'Draft',
-        Cloud__c = 'Experience Cloud',
-        Description__c = 'Self-service portal.',
-        GitHub_Repository__c = 'https://github.com/example/micromed',
-        Demo_URL__c = 'https://example.com/micromed'
+        Cloud__c = 'Platform',
+        Description__c = 'Sample published-style record for tests.',
+        GitHub_Repository__c = 'https://github.com/example/platform-lab',
+        Demo_URL__c = 'https://example.com/platform-lab'
       ),
       new Salesforce_Project__c(
         Name = 'Sales Funnel',
@@ -22,7 +22,7 @@ private class PortfolioProjectInvocableTest {
     };
 
     PortfolioProjectInvocable.Request request = new PortfolioProjectInvocable.Request();
-    request.cloud = 'Experience Cloud';
+    request.cloud = 'Platform';
     request.status = 'Draft';
 
     Test.startTest();
@@ -36,7 +36,7 @@ private class PortfolioProjectInvocableTest {
 
     System.assertEquals(1, results.size());
     System.assertEquals(1, results[0].projectCount);
-    System.assert(results[0].summary.contains('Micromed Portal'));
+    System.assert(results[0].summary.contains('Platform Lab'));
     System.assertEquals(0, empty[0].projectCount);
   }
 }
