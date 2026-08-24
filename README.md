@@ -3,13 +3,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/RuntimeRod/salesforce-portfolio-app/actions/workflows/ci.yml/badge.svg)](https://github.com/RuntimeRod/salesforce-portfolio-app/actions/workflows/ci.yml)
 
-App nativo na Salesforce Platform: portfólio de projetos, experiência,
+App Salesforce: portfólio de projetos, experiência,
 certificações e skills. Apex no padrão fflib-style (selector / domain /
 service), LWC na Home (perfil, métricas, GitHub) e callout REST na API
 do GitHub.
-
-Agentforce **não** entra neste pacote. Os invocáveis Apex já estão prontos;
-ver [docs/AGENTFORCE.md](docs/AGENTFORCE.md).
 
 ## O que tem no app
 
