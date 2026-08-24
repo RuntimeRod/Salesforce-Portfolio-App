@@ -1,0 +1,48 @@
+<template>
+  <lightning-card
+    title="My GitHub repositories"
+    icon-name="utility:socialshare"
+  >
+    <div class="slds-p-horizontal_small slds-p-bottom_small">
+      <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-m-vertical_large">
+          <lightning-spinner
+            alternative-text="Loading repositories"
+            size="small"
+          ></lightning-spinner>
+        </div>
+      </template>
+      <template lwc:elseif={errorMessage}>
+        <p class="slds-text-color_error">{errorMessage}</p>
+      </template>
+      <template lwc:elseif={hasRepos}>
+        <div class="repo-grid">
+          <template for:each={repos} for:item="repo">
+            <article
+              key={repo.name}
+              class="repo-card slds-box slds-box_x-small"
+            >
+              <a href={repo.htmlUrl} target="_blank" rel="noopener noreferrer"
+                >{repo.name}</a
+              >
+              <p class="slds-text-body_small slds-m-top_xx-small">
+                {repo.description}
+              </p>
+              <p
+                class="slds-text-body_small slds-text-color_weak slds-m-top_xx-small"
+              >
+                {repo.language} · {repo.stargazersCount} stars
+              </p>
+            </article>
+          </template>
+        </div>
+      </template>
+      <template lwc:else>
+        <p>
+          No public repositories were returned for the configured GitHub
+          username.
+        </p>
+      </template>
+    </div>
+  </lightning-card>
+</template>
