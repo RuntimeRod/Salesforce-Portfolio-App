@@ -31,11 +31,6 @@ sf org open --target-org portfolio-app
 
 Permission set: `Portfolio_Admin`. Username do GitHub: `GitHub_Config__mdt.Default`.
 
-## Docs
-
-[Arquitetura](docs/architecture.md) ·
-[Agentforce](docs/AGENTFORCE.md) ·
-[Planejamento](docs/PLANEJAMENTO.md)
 
 ## Autor
 
