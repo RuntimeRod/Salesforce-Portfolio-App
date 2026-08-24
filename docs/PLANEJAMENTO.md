@@ -12,16 +12,16 @@
 O projeto existe para provar, com evidência pública e demonstrável, cada linha do
 currículo:
 
-| Alegação no currículo | Prova no projeto |
-|---|---|
-| Apex | Classes de serviço, trigger, callout REST |
-| LWC | Componente `githubRepos` consumindo API real |
-| Flow Builder | Record-Triggered Flow + Screen Flow |
-| Custom Metadata Types | Configuração do endpoint GitHub em CMT |
-| Integrações REST (Named Credentials) | Callout à API pública do GitHub |
-| Testes com cobertura >90% | Suite de testes com `HttpCalloutMock`, print do resultado |
-| Salesforce CLI, Git, VS Code | Repositório SFDX + CI no GitHub Actions |
-| Reports/dashboards | Dashboard do portfólio (Fase 1) |
+| Alegação no currículo                | Prova no projeto                                          |
+| ------------------------------------ | --------------------------------------------------------- |
+| Apex                                 | Classes de serviço, trigger, callout REST                 |
+| LWC                                  | Componente `githubRepos` consumindo API real              |
+| Flow Builder                         | Record-Triggered Flow + Screen Flow                       |
+| Custom Metadata Types                | Configuração do endpoint GitHub em CMT                    |
+| Integrações REST (Named Credentials) | Callout à API pública do GitHub                           |
+| Testes com cobertura >90%            | Suite de testes com `HttpCalloutMock`, print do resultado |
+| Salesforce CLI, Git, VS Code         | Repositório SFDX + CI no GitHub Actions                   |
+| Reports/dashboards                   | Dashboard do portfólio (Fase 1)                           |
 
 Regra de ouro: **o artefato durável é o repositório + vídeo + prints, não a org.**
 Se a org expirar, tudo se redeploya com um comando (isso vira argumento de venda).
@@ -42,7 +42,7 @@ Exatamente o tutorial, com estas correções/melhorias:
 4. App "Salesforce Portfolio" + tabs + Home Page (Lightning App Builder,
    template Header and Three Regions).
 5. Reports (5) na pasta `Portfolio Reports` + Dashboard `Salesforce Portfolio
-   Dashboard` (métricas: Total Projects/Certifications/Skills; gráficos:
+Dashboard` (métricas: Total Projects/Certifications/Skills; gráficos:
    Projects by Status, by Cloud, Certifications by Status, Skills by Category;
    tabela: Professional Experience).
 6. Preencher com dados reais: 3 projetos profissionais (Unisanta, Real
@@ -52,6 +52,7 @@ Exatamente o tutorial, com estas correções/melhorias:
 ### Fase 2 — Extensões de desenvolvimento (o diferencial, ~10-15h)
 
 **2.1 Integração REST — LWC `githubRepos` + Apex callout**
+
 - Named Credential `GitHub_API` → `https://api.github.com` (sem auth; API pública).
 - Custom Metadata Type `GitHub_Config__mdt` com campos `Username__c` e
   `Max_Repos__c` (prova CMT como configuração, igual ao que fez na Unisanta).
@@ -64,6 +65,7 @@ Exatamente o tutorial, com estas correções/melhorias:
   ao vivo. Integração de verdade, demonstrável em vídeo.
 
 **2.2 Automação — Flows**
+
 - **Record-Triggered Flow** em `Salesforce_Project__c`: quando `Status__c`
   muda para `Published`, cria uma Task "Divulgar projeto no LinkedIn" e
   valida que `GitHub_Repository__c` e `Demo_URL__c` estão preenchidos
@@ -71,13 +73,16 @@ Exatamente o tutorial, com estas correções/melhorias:
 - **Screen Flow** "New Project Wizard": passos guiados para cadastrar projeto
   (dados básicos → problema/solução → links), exposto como botão na tab.
 
-**2.3 Apex Trigger + service layer**
-- Trigger `SalesforceProjectTrigger` (one trigger per object, delegando para
-  `SalesforceProjectTriggerHandler`): ao publicar projeto, estampa
-  `Published_Date__c` (campo novo) e impede publicação sem descrição
-  (addError). Padrão handler mostra boas práticas.
+**2.3 Apex Enterprise Patterns (fflib-style)**
+
+- Trigger `SalesforceProjectTrigger` → `SalesforceProjectTriggerHandler` →
+  `Application.domain()` → `SalesforceProjectDomain` (descrição + Published Date).
+- SOQL em `SalesforceProjectSelector`; orquestração em `SalesforceProjectService`.
+- Factory `Application` (sem pacote unmanaged fflib-apex-common).
+- Callout GitHub em `GitHubService` (gateway; selector é só SOQL).
 
 **2.4 Testes (>90%)**
+
 - `GitHubServiceTest` com `HttpCalloutMock` (sucesso, erro 404, JSON inválido).
 - `SalesforceProjectTriggerHandlerTest` (bulk 200 registros, cenários
   positivo/negativo).
@@ -85,6 +90,7 @@ Exatamente o tutorial, com estas correções/melhorias:
   (`sf apex run test --code-coverage`) vai para o README.
 
 **2.5 DevOps**
+
 - Projeto no formato **SFDX** (source format) desde o primeiro commit.
 - **GitHub Actions** (`.github/workflows/ci.yml`): a cada push/PR, roda
   `sf project deploy validate` + testes contra a org (auth via
@@ -92,7 +98,14 @@ Exatamente o tutorial, com estas correções/melhorias:
 - Script `scripts/deploy.sh` para subir tudo em org nova em minutos
   (o antídoto para org expirada).
 
+**2.6 Apex invocável (gancho Agentforce)**
+
+- `PortfolioProjectInvocable` e `GitHubReposInvocable` reutilizam os serviços.
+- Não inclui metadata de Agentforce neste pacote.
+
 ### Fase 3 — Apresentação (detalhada nas seções 4-7)
+
+### Fase 4 — Agentforce (você; ver `docs/AGENTFORCE.md`)
 
 ---
 
@@ -138,12 +151,14 @@ salesforce-portfolio-app/
 flexipage (são recuperáveis via `sf project retrieve start`).
 
 **NÃO versiona:**
+
 - Dados de registros com informação pessoal sensível (telefone → usar
   placeholder nos JSONs de `data/`).
 - Credenciais, auth files, `.sfdx/`, `.sf/`.
 - Profiles (usar Permission Set `Portfolio_Admin` — mais limpo e portátil).
 
 **Higiene de Git que vira vitrine:**
+
 - Conventional Commits (`feat:`, `fix:`, `test:`, `docs:`).
 - Branches `feature/*` + Pull Requests para `main` (mesmo sozinho — o
   histórico de PRs bem descritos é evidência de fluxo profissional).
@@ -180,18 +195,18 @@ com legendas/versão EN se mirar vagas internacionais.
 Guardar em `docs/img/` (usados no README) e no portfólio. Sempre em tela
 cheia, org em inglês, dados reais cadastrados, zoom 100%:
 
-| # | Print | Onde usa |
-|---|---|---|
-| 1 | Home Page completa do app (hero shot) | README topo + LinkedIn |
-| 2 | Dashboard com os 8 widgets preenchidos | README + currículo/portfólio |
-| 3 | Record page de um projeto real (Unisanta) preenchido | README |
-| 4 | LWC `githubRepos` renderizado na home com repos reais | README (seção integração) |
-| 5 | Canvas do Record-Triggered Flow no Flow Builder | README (seção automação) |
-| 6 | Screen Flow em execução (wizard, passo 2) | README |
-| 7 | Terminal: `sf apex run test --code-coverage` com >90% | README (seção testes) |
-| 8 | GitHub Actions com pipeline verde | README (seção CI) |
-| 9 | Estrutura do projeto no VS Code (árvore force-app) | README (seção como rodar) |
-| 10 | App Launcher mostrando o app instalado | reserva |
+| #   | Print                                                 | Onde usa                     |
+| --- | ----------------------------------------------------- | ---------------------------- |
+| 1   | Home Page completa do app (hero shot)                 | README topo + LinkedIn       |
+| 2   | Dashboard com os 8 widgets preenchidos                | README + currículo/portfólio |
+| 3   | Record page de um projeto real (Unisanta) preenchido  | README                       |
+| 4   | LWC `githubRepos` renderizado na home com repos reais | README (seção integração)    |
+| 5   | Canvas do Record-Triggered Flow no Flow Builder       | README (seção automação)     |
+| 6   | Screen Flow em execução (wizard, passo 2)             | README                       |
+| 7   | Terminal: `sf apex run test --code-coverage` com >90% | README (seção testes)        |
+| 8   | GitHub Actions com pipeline verde                     | README (seção CI)            |
+| 9   | Estrutura do projeto no VS Code (árvore force-app)    | README (seção como rodar)    |
+| 10  | App Launcher mostrando o app instalado                | reserva                      |
 
 GIF animado (ScreenToGif/LICEcap): navegação home → projeto → dashboard, 10-15s.
 
@@ -203,15 +218,15 @@ Ferramentas: OBS Studio (1080p, 30fps), microfone a 10-15cm, org em inglês,
 navegação ensaiada 2x antes de gravar. Hospedar no YouTube (unlisted ou
 público) e linkar no README, currículo e LinkedIn.
 
-| Tempo | Cena | O que mostrar | O que falar |
-|---|---|---|---|
-| 0:00–0:15 | Abertura | Home do app já aberta | "Sou Rodrigo, dev Salesforce. Este é meu portfólio construído como app nativo na plataforma — objetos, automação, código e integração real." |
-| 0:15–0:45 | Tour declarativo | Tabs: About Me → Experience → Certifications; abrir o registro do projeto Unisanta | "Modelei 6 objetos customizados para representar o portfólio; cada projeto documenta problema de negócio, solução e arquitetura." |
-| 0:45–1:15 | Dashboard | Dashboard completo, apontar métricas | "Reports agrupados alimentam o dashboard — a mesma estrutura de relatórios que entrego em projetos de clientes." |
-| 1:15–1:50 | Integração (clímax) | Home → LWC githubRepos; clicar num repo e abrir o GitHub | "Este componente LWC consome a API do GitHub via Apex com Named Credential; o endpoint e os parâmetros ficam em Custom Metadata — mostra integração REST de ponta a ponta." |
-| 1:50–2:20 | Automação | Mudar Status de um projeto para Published; mostrar a Task criada e a validação bloqueando publicação sem link | "Um Record-Triggered Flow e um trigger Apex controlam o ciclo de publicação." |
-| 2:20–2:50 | Código + DevOps | VS Code: árvore SFDX, classe de teste; terminal rodando testes com >90%; aba do GitHub Actions verde | "Tudo versionado em formato SFDX com CI no GitHub Actions — o projeto inteiro sobe numa org nova com um script, em minutos." |
-| 2:50–3:00 | Fechamento | README na tela | "Código, prints e instruções no repositório — link na descrição. Obrigado!" |
+| Tempo     | Cena                | O que mostrar                                                                                                 | O que falar                                                                                                                                                                 |
+| --------- | ------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0:00–0:15 | Abertura            | Home do app já aberta                                                                                         | "Sou Rodrigo, dev Salesforce. Este é meu portfólio construído como app nativo na plataforma — objetos, automação, código e integração real."                                |
+| 0:15–0:45 | Tour declarativo    | Tabs: About Me → Experience → Certifications; abrir o registro do projeto Unisanta                            | "Modelei 6 objetos customizados para representar o portfólio; cada projeto documenta problema de negócio, solução e arquitetura."                                           |
+| 0:45–1:15 | Dashboard           | Dashboard completo, apontar métricas                                                                          | "Reports agrupados alimentam o dashboard — a mesma estrutura de relatórios que entrego em projetos de clientes."                                                            |
+| 1:15–1:50 | Integração (clímax) | Home → LWC githubRepos; clicar num repo e abrir o GitHub                                                      | "Este componente LWC consome a API do GitHub via Apex com Named Credential; o endpoint e os parâmetros ficam em Custom Metadata — mostra integração REST de ponta a ponta." |
+| 1:50–2:20 | Automação           | Mudar Status de um projeto para Published; mostrar a Task criada e a validação bloqueando publicação sem link | "Um Record-Triggered Flow e um trigger Apex controlam o ciclo de publicação."                                                                                               |
+| 2:20–2:50 | Código + DevOps     | VS Code: árvore SFDX, classe de teste; terminal rodando testes com >90%; aba do GitHub Actions verde          | "Tudo versionado em formato SFDX com CI no GitHub Actions — o projeto inteiro sobe numa org nova com um script, em minutos."                                                |
+| 2:50–3:00 | Fechamento          | README na tela                                                                                                | "Código, prints e instruções no repositório — link na descrição. Obrigado!"                                                                                                 |
 
 Regras: nunca passar de 4 min; sem música de fundo alta; cortar pausas na
 edição (CapCut/DaVinci gratuitos); primeiro take é ensaio.
@@ -242,12 +257,12 @@ edição (CapCut/DaVinci gratuitos); primeiro take é ensaio.
 
 ## 8. Cronograma sugerido
 
-| Semana | Entrega |
-|---|---|
-| 1 | Fase 1 completa (app declarativo + dados reais) + repo SFDX inicial com retrieve do metadata + primeiro push |
-| 2 | GitHubService + LWC + CMT + Named Credential funcionando |
-| 3 | Flows + trigger/handler + testes >90% + CI verde |
-| 4 | Prints, GIF, vídeo, README final, release v1.0, post LinkedIn, atualização do currículo |
+| Semana | Entrega                                                                                                      |
+| ------ | ------------------------------------------------------------------------------------------------------------ |
+| 1      | Fase 1 completa (app declarativo + dados reais) + repo SFDX inicial com retrieve do metadata + primeiro push |
+| 2      | GitHubService + LWC + CMT + Named Credential funcionando                                                     |
+| 3      | Flows + trigger/handler + testes >90% + CI verde                                                             |
+| 4      | Prints, GIF, vídeo, README final, release v1.0, post LinkedIn, atualização do currículo                      |
 
 Manutenção: logar na Developer Edition ao menos 1x/mês (orgs DE expiram por
 inatividade prolongada, não por prazo fixo).
@@ -263,6 +278,8 @@ inatividade prolongada, não por prazo fixo).
   confidenciais — descrever solução técnica genérica, como já está no currículo.
 - **API do GitHub sem auth**: limite de 60 requisições/hora por IP — suficiente
   para demo; tratar erro 403 no Apex com mensagem amigável (vira caso de teste).
-- **Agentforce**: fora do escopo deste projeto (orgs com validade curta).
-  Se fizer um experimento pontual depois, documentar via vídeo/prints antes
-  de expirar e adicionar como projeto separado no app.
+- **Agentforce**: **Fase 4, feita por você**, fora do `force-app` principal.
+  Os ganchos Apex já existem (`PortfolioProjectInvocable`,
+  `GitHubReposInvocable`). Siga `docs/AGENTFORCE.md`: só depois da Fase 2
+  verde, numa DE com Agentforce, **antes** de prints/vídeo/CV. Não versionar
+  metadata GenAI no pacote padrão (quebra o deploy em org sem licença).
