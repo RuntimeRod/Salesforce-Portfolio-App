@@ -3,6 +3,11 @@
     <columns>
         <field>CUST_NAME</field>
     </columns>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Certification__c.Status__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
     <format>Summary</format>
     <name>Total Certifications</name>
     <params>

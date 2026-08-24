@@ -92,7 +92,7 @@
                 <showPercentage>false</showPercentage>
                 <showValues>true</showValues>
                 <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>false</useReportChart>
+                <useReportChart>true</useReportChart>
             </dashboardComponent>
             <rowIndex>4</rowIndex>
             <rowSpan>8</rowSpan>
@@ -113,7 +113,7 @@
                 <showPercentage>false</showPercentage>
                 <showValues>true</showValues>
                 <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>false</useReportChart>
+                <useReportChart>true</useReportChart>
             </dashboardComponent>
             <rowIndex>4</rowIndex>
             <rowSpan>8</rowSpan>
@@ -134,7 +134,7 @@
                 <showPercentage>false</showPercentage>
                 <showValues>true</showValues>
                 <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>false</useReportChart>
+                <useReportChart>true</useReportChart>
             </dashboardComponent>
             <rowIndex>4</rowIndex>
             <rowSpan>8</rowSpan>
@@ -155,7 +155,7 @@
                 <showPercentage>false</showPercentage>
                 <showValues>true</showValues>
                 <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>false</useReportChart>
+                <useReportChart>true</useReportChart>
             </dashboardComponent>
             <rowIndex>12</rowIndex>
             <rowSpan>8</rowSpan>

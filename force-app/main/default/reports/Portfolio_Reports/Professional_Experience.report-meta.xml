@@ -4,9 +4,6 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>Experience__c.Company__c</field>
-    </columns>
-    <columns>
         <field>Experience__c.Role__c</field>
     </columns>
     <columns>
@@ -18,7 +15,12 @@
     <columns>
         <field>Experience__c.Is_Current__c</field>
     </columns>
-    <format>Tabular</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Experience__c.Company__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <format>Summary</format>
     <name>Professional Experience</name>
     <params>
         <name>co</name>
