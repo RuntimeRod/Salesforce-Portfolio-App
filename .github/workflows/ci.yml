@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Salesforce CLI
+        run: npm install --global @salesforce/cli
+
+      - name: Authenticate to org
+        # Create the secret with: sf org display --verbose --target-org portfolio-app
+        # and copy the "Sfdx Auth Url" value into a repo secret named SFDX_AUTH_URL.
+        run: |
+          echo "${{ secrets.SFDX_AUTH_URL }}" > auth-url.txt
+          sf org login sfdx-url --sfdx-url-file auth-url.txt --alias ci-org --set-default
+          rm auth-url.txt
+
+      - name: Validate deploy (check-only) and run tests
+        run: sf project deploy validate --source-dir force-app --test-level RunLocalTests --target-org ci-org --wait 30
