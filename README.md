@@ -7,25 +7,8 @@ App Salesforce: portfólio de projetos, experiência,
 certificações e skills. Apex no padrão fflib-style (selector / domain),
 LWC na Home (perfil, métricas, GitHub) e callout REST na API do GitHub.
 
-## O que tem no app
-
-| Área       | Detalhe                                                       |
-| ---------- | ------------------------------------------------------------- |
-| Dados      | 6 objetos customizados + app Lightning `Salesforce_Portfolio` |
-| Home       | LWC `portfolioHome` + `githubRepos` + dashboard embutido      |
-| Publicação | Validation Rule + domain no before trigger (descrição e data) |
-| GitHub     | Named Credential `GitHub_API` + CMT `GitHub_Config__mdt`      |
-| Qualidade  | Testes Apex (mock de callout) + Jest + GitHub Actions         |
-
-## Como subir
-
-```bash
-sf org login web --alias portfolio-app
-./scripts/deploy.sh portfolio-app
-sf org open --target-org portfolio-app
-```
-
-Permission set: `Portfolio_Admin`. Username do GitHub: `GitHub_Config__mdt.Default`.
+## Demo e Imagens
+Em breve!
 
 ## Autor
 
