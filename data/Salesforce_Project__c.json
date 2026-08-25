@@ -8,12 +8,12 @@
       "Name": "Salesforce Portfolio App",
       "Status__c": "Published",
       "Cloud__c": "Platform",
-      "Technologies__c": "Apex, LWC, Flow Builder, Named Credentials, Custom Metadata, GitHub Actions",
+      "Technologies__c": "Apex, LWC, Named Credentials, Custom Metadata, GitHub Actions",
       "Start_Date__c": "2026-08-01",
-      "Description__c": "Personal portfolio as a native Salesforce app: custom objects, layered Apex, a live GitHub LWC and publication automation. More case studies can be added as Published records.",
+      "Description__c": "Personal portfolio as a native Salesforce app: custom objects, layered Apex and a live GitHub LWC on Home. More case studies can be added as Published records.",
       "Problem__c": "A résumé alone cannot prove Apex architecture, LWC, integrations or test discipline to a Salesforce hiring manager.",
-      "Solution__c": "A deployable SFDX app with a REST callout, trigger handler, Flows with split responsibilities, tests and CI.",
-      "Architecture__c": "LWC portfolioHome and githubRepos → Apex controllers → GitHubService (Named Credential + CMT). Trigger → Handler → Domain. Selector/service for projects. Invocables for Flow and Agentforce.",
+      "Solution__c": "A deployable SFDX app with a REST callout, trigger handler, tests and CI.",
+      "Architecture__c": "LWC portfolioHome and githubRepos → Apex controllers → GitHubService (Named Credential + CMT). Trigger → Handler → Domain. Selector for published projects on Home.",
       "GitHub_Repository__c": "https://github.com/RuntimeRod/Salesforce-Portfolio-App",
       "Demo_URL__c": "https://github.com/RuntimeRod/Salesforce-Portfolio-App"
     }

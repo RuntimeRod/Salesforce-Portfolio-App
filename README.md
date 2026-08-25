@@ -4,9 +4,8 @@
 [![CI](https://github.com/RuntimeRod/salesforce-portfolio-app/actions/workflows/ci.yml/badge.svg)](https://github.com/RuntimeRod/salesforce-portfolio-app/actions/workflows/ci.yml)
 
 App Salesforce: portfólio de projetos, experiência,
-certificações e skills. Apex no padrão fflib-style (selector / domain /
-service), LWC na Home (perfil, métricas, GitHub) e callout REST na API
-do GitHub.
+certificações e skills. Apex no padrão fflib-style (selector / domain),
+LWC na Home (perfil, métricas, GitHub) e callout REST na API do GitHub.
 
 ## O que tem no app
 
@@ -14,9 +13,9 @@ do GitHub.
 | ---------- | ------------------------------------------------------------- |
 | Dados      | 6 objetos customizados + app Lightning `Salesforce_Portfolio` |
 | Home       | LWC `portfolioHome` + `githubRepos` + dashboard embutido      |
-| Publicação | Validation Rule, domain no trigger, Flow de Task no LinkedIn  |
+| Publicação | Validation Rule + domain no before trigger (descrição e data) |
 | GitHub     | Named Credential `GitHub_API` + CMT `GitHub_Config__mdt`      |
-| Qualidade  | Testes Apex (mock de callout, bulk) + Jest + GitHub Actions   |
+| Qualidade  | Testes Apex (mock de callout) + Jest + GitHub Actions         |
 
 ## Como subir
 
@@ -27,7 +26,6 @@ sf org open --target-org portfolio-app
 ```
 
 Permission set: `Portfolio_Admin`. Username do GitHub: `GitHub_Config__mdt.Default`.
-
 
 ## Autor
 

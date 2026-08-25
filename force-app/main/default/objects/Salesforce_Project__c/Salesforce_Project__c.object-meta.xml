@@ -21,7 +21,6 @@
     </nameField>
     <pluralLabel>Salesforce Projects</pluralLabel>
     <searchLayouts>
-        <listViewButtons>New_Project_Wizard</listViewButtons>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Cloud__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields

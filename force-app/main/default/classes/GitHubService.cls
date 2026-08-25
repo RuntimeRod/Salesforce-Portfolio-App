@@ -2,7 +2,7 @@
  * Integration service (callout gateway — not a SOQL selector).
  *
  * Reads GitHub_Config__mdt, calls Named Credential GitHub_API, maps JSON into
- * RepoWrapper for LWC / Agentforce. Errors are typed (GitHubException).
+ * RepoWrapper for the Home LWC. Errors are typed (GitHubException).
  */
 public with sharing class GitHubService {
   public class GitHubException extends Exception {
